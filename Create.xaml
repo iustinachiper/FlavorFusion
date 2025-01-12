@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlavorFusion.Create"
+             Title="">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+            <!-- Titlul paginii -->
+            <Label Text="Create Your Recipe" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" />
+            <Label Text="Add a Delicious New Recipe" FontSize="18" TextColor="Gray" HorizontalOptions="Center" />
+
+            <Entry Placeholder="Name" Text="{Binding Recipe.Name}" />
+
+            <Entry Placeholder="CategoryId" Text="{Binding Recipe.CategoryId}" Keyboard="Numeric" />
+
+            <Editor Placeholder="Instructions" Text="{Binding Recipe.Instructions}" HeightRequest="100" />
+
+            <Entry Placeholder="UserId" Text="{Binding Recipe.UserId}" Keyboard="Numeric" />
+
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Label Text="Upload Recipe Image" VerticalOptions="Center" />
+                <Button Text="Choose File" Command="{Binding UploadImageCommand}" />
+            </StackLayout>
+
+            <Button Text="Create Recipe"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    Command="{Binding SaveRecipeCommand}" />
+
+            <Button Text="Back to List"
+                    BackgroundColor="#E0E0E0"
+                    TextColor="Black"
+                    Clicked="BackToList_Clicked" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

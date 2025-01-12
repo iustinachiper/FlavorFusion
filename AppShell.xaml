@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="FlavorFusion.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FlavorFusion"
+    Shell.FlyoutBehavior="Disabled"
+    Title="FlavorFusion">
+
+    <TabBar>
+        <ShellContent
+ Title="Recipes"
+ ContentTemplate="{DataTemplate local:Recipes}"
+ Route="Recipes"
+ />
+        <ShellContent
+Title="Categories"
+ContentTemplate="{DataTemplate local:Categories}"
+Route="Categories"
+/>
+<ShellContent
+Title="Meal Plans"
+ContentTemplate="{DataTemplate local:MealPlans}"
+Route="MealPlans"
+/>
+    </TabBar>
+
+    <!-- Route pentru pagina Create -->
+    <ShellContent Title="Create"
+                  ContentTemplate="{DataTemplate local:Create}" 
+                  Route="Create" />
+
+    <!-- Definește ruta pentru pagina CreateCategory -->
+    <ShellContent Title="Create Category"
+                  ContentTemplate="{DataTemplate local:CreateCategory}"
+                  Route="CreateCategory" />
+
+    <ShellContent Title="Create Meal Plan"
+              ContentTemplate="{DataTemplate local:CreateMealPlan}"
+              Route="CreateMealPlan" />
+
+
+</Shell>

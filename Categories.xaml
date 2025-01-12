@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlavorFusion.Categories"
+             Title="Categories">
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <!-- Buton pentru adăugare categorie -->
+        <Button Text="Create New Category"
+                BackgroundColor="#4CAF50"
+                TextColor="White"
+                CornerRadius="10"
+                HorizontalOptions="Start"
+                Command="{Binding NavigateToCreateCategoryCommand}" />
+
+        <!-- Tabel cu categorii -->
+        <Grid ColumnDefinitions="2*, 1*" RowSpacing="10">
+            <!-- Header -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Text="Category Name"
+                   FontAttributes="Bold"
+                   FontSize="16"
+                   HorizontalOptions="Start" />
+            <Label Text="Actions"
+                   FontAttributes="Bold"
+                   FontSize="16"
+                   HorizontalOptions="End" />
+
+            <!-- Listează categoriile -->
+            <CollectionView Grid.Row="1" ItemsSource="{Binding Categories}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="2*, 1*" RowSpacing="5">
+                            <!-- Numele categoriei -->
+                            <Label Text="{Binding Name}" VerticalOptions="Center" />
+
+                            <!-- Acțiuni -->
+                            <StackLayout Orientation="Horizontal"
+                                         HorizontalOptions="End">
+                                <Button Text="Edit"
+                                        BackgroundColor="LightGray"
+                                        TextColor="Black"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.EditCategoryCommand}"
+                                        CommandParameter="{Binding}" />
+                                <Button Text="Delete"
+                                        BackgroundColor="Red"
+                                        TextColor="White"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.DeleteCategoryCommand}"
+                                        CommandParameter="{Binding}" />
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

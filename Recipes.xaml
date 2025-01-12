@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlavorFusion.Recipes"
+             Title="">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="20">
+            <!-- Imaginea -->
+            <Image Source="logo.png"
+               Aspect="AspectFit"
+               HeightRequest="150"
+               HorizontalOptions="Center" />
+            <!-- Titlu principal -->
+            <Label Text="Welcome! Discover our delicious recipes."
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   Margin="0,10" />
+            <Label Text="Find the recipe with your favorite ingredients and let us know your thoughts!"
+                   FontSize="16"
+                   TextColor="Gray"
+                   HorizontalOptions="Center" />
+
+            <!-- Buton pentru crearea unei rețete -->
+            <Button Text="Tell us your magic recipe! Create a new one."
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HorizontalOptions="Center"
+                    Command="{Binding NavigateToCreateCommand}" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
