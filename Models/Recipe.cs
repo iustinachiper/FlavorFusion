@@ -1,24 +1,28 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FlavorFusion.Models
 {
+    [Table("Recipe")] // Specifică numele tabelului în baza de date
     public class Recipe
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Instructions { get; set; }
-        public int CategoryId { get; set; }
-        public Category Category { get; set; }
-        public int UserId { get; set; }
-        public string ImageUrl { get; set; }
-        [NotMapped]
-        public Stream ImageFile { get; set; }
-        public int? MealPlanId { get; set; }
-        public MealPlan MealPlan { get; set; }
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; } // ID unic pentru fiecare rețetă
+
+        [Column("Name")]
+        public string Name { get; set; } // Numele rețetei
+
+        [Column("Instructions")]
+        public string Instructions { get; set; } // Instrucțiuni pentru rețetă
+
+        [Column("CategoryId")]
+        public int CategoryId { get; set; } // Referință la categoria din care face parte
+
+        [Column("UserId")]
+        public int UserId { get; set; } // Referință la utilizatorul care a creat rețeta
     }
 }

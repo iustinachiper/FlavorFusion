@@ -23,7 +23,7 @@
 
             <!-- Buton pentru crearea unei rețete -->
             <Button Text="Tell us your magic recipe! Create a new one."
-                    BackgroundColor="#4CAF50"
+                    BackgroundColor="#91CCCA"
                     TextColor="White"
                     CornerRadius="10"
                     HorizontalOptions="Center"

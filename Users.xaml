@@ -1,35 +1,31 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FlavorFusion.Categories"
-             Title="Categories">
-    <VerticalStackLayout Padding="20" Spacing="20">
-        <!-- Buton pentru adăugare categorie -->
-        <Button Text="Create New Category"
+             x:Class="FlavorFusion.Users"
+             Title="Users">
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <!-- Buton pentru adăugare utilizator -->
+        <Button Text="Create New User"
                 BackgroundColor="#91CCCA"
                 TextColor="White"
                 CornerRadius="10"
                 HorizontalOptions="Start"
-                Command="{Binding NavigateToCreateCategoryCommand}" />
+                Command="{Binding NavigateToCreateUserCommand}" />
 
-        <!-- Antet pentru lista de categorii -->
-        <Grid ColumnDefinitions="2*, Auto, Auto" RowSpacing="10">
-            <Label Text="Category Name"
+        <!-- Titlu pentru coloanele tabelului -->
+        <Grid ColumnDefinitions="2*, Auto" RowSpacing="5">
+            <Label Text="Username"
                    FontAttributes="Bold"
                    FontSize="16"
-                   HorizontalOptions="Start"
                    VerticalOptions="Center" />
-
             <Label Text="Actions"
                    FontAttributes="Bold"
                    FontSize="16"
-                   HorizontalOptions="End"
-                   VerticalOptions="Center"
-                   Grid.ColumnSpan="2" />
+                   HorizontalOptions="End" />
         </Grid>
 
-        <!-- Lista categoriilor -->
-        <CollectionView ItemsSource="{Binding Categories}">
+        <!-- Listarea utilizatorilor -->
+        <CollectionView ItemsSource="{Binding Users}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame CornerRadius="8" BorderColor="LightGray" Padding="10" Margin="5">
@@ -37,32 +33,32 @@
                               VerticalOptions="Center"
                               RowSpacing="5"
                               Padding="10">
-                            <!-- Numele categoriei -->
-                            <Label Text="{Binding Name}" 
+                            <!-- Numele utilizatorului -->
+                            <Label Text="{Binding Username}" 
                                    FontSize="16"
                                    VerticalOptions="Center"
                                    HorizontalOptions="Start" />
 
-                            <!-- Butonul Edit -->
+                            <!-- Buton Edit -->
                             <Button Text="Edit"
                                     BackgroundColor="#D3D3D3"
                                     TextColor="Black"
                                     Padding="5"
                                     FontSize="14"
                                     CornerRadius="10"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.EditCategoryCommand}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.EditUserCommand}"
                                     CommandParameter="{Binding}" 
                                     Grid.Column="1"
                                     Margin="5,0" />
 
-                            <!-- Butonul Delete -->
+                            <!-- Buton Delete -->
                             <Button Text="Delete"
                                     BackgroundColor="Red"
                                     TextColor="White"
                                     Padding="5"
                                     FontSize="14"
                                     CornerRadius="10"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.DeleteCategoryCommand}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.DeleteUserCommand}"
                                     CommandParameter="{Binding}" 
                                     Grid.Column="2"
                                     Margin="5,0" />

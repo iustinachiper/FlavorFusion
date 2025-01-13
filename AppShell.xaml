@@ -4,9 +4,10 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:FlavorFusion"
-    Shell.FlyoutBehavior="Disabled"
-    Title="FlavorFusion">
-
+      Shell.TabBarBackgroundColor="White"
+    Shell.TabBarForegroundColor="#91CCCA"
+    Shell.TabBarTitleColor="#91CCCA"
+    Shell.TabBarUnselectedColor="Gray">
     <TabBar>
         <ShellContent
  Title="Recipes"
@@ -19,25 +20,27 @@ ContentTemplate="{DataTemplate local:Categories}"
 Route="Categories"
 />
 <ShellContent
-Title="Meal Plans"
-ContentTemplate="{DataTemplate local:MealPlans}"
-Route="MealPlans"
+Title="Users"
+ContentTemplate="{DataTemplate local:Users}"
+Route="Users"
 />
     </TabBar>
 
     <!-- Route pentru pagina Create -->
     <ShellContent Title="Create"
                   ContentTemplate="{DataTemplate local:Create}" 
-                  Route="Create" />
+                  Route="Create"
+                  FlyoutItemIsVisible="False"/>
 
     <!-- Definește ruta pentru pagina CreateCategory -->
     <ShellContent Title="Create Category"
                   ContentTemplate="{DataTemplate local:CreateCategory}"
-                  Route="CreateCategory" />
+                  Route="CreateCategory"
+                  FlyoutItemIsVisible="False"/>
 
-    <ShellContent Title="Create Meal Plan"
-              ContentTemplate="{DataTemplate local:CreateMealPlan}"
-              Route="CreateMealPlan" />
-
+    <ShellContent Title="Create New User"
+              ContentTemplate="{DataTemplate local:CreateUser}"
+              Route="CreateUser"
+              FlyoutItemIsVisible="False"/>
 
 </Shell>

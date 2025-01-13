@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using FlavorFusion.Data;
+using System.IO;
 
 namespace FlavorFusion
 {
@@ -15,8 +17,12 @@ namespace FlavorFusion
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            // Configurează baza de date
+            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "FlavorFusion.db3");
+            builder.Services.AddSingleton<FlavorFusionDatabase>(_ => new FlavorFusionDatabase(dbPath));
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

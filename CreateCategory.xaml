@@ -15,9 +15,9 @@
 
         <!-- Legăm butonul la comanda SaveCategoryCommand -->
         <Button Text="Save Category"
-                BackgroundColor="Green"
+                BackgroundColor="#91CCCA"
                 TextColor="White"
-                Command="{Binding SaveCategoryCommand}" />
+                Clicked="SaveCategory_Clicked" />
 
         <Button Text="Back to Categories"
         BackgroundColor="LightGray"

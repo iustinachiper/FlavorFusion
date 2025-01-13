@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace FlavorFusion.Models
 {
-    [Table("Category")] 
-
-    public class Category
+    public class User
     {
-        [PrimaryKey, AutoIncrement] 
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
+        [Column("Username"), Unique]
+        public string Username { get; set; }
 
-        [Column("Name")] 
-        public string Name { get; set; }
+        [Column("Email"), Unique]
+        public string Email { get; set; }
     }
 }
