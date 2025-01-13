@@ -41,16 +41,23 @@ namespace FlavorFusion.ViewModels
         {
             try
             {
-                var recipesFromDb = await App.Database.GetRecipesAsync(); // Încarcă din baza de date
+                var recipesFromDb = await App.Database.GetRecipesAsync(); // Încarcă rețetele
                 Recipes.Clear();
+
                 foreach (var recipe in recipesFromDb)
                 {
-                    Recipes.Add(recipe); // Adaugă fiecare rețetă în listă
+                    // Încarcă informațiile despre categorie și utilizator
+                    var category = await App.Database.GetCategoryAsync(recipe.CategoryId);
+                    var user = await App.Database.GetUserAsync(recipe.UserId);
+
+                    recipe.CategoryName = category?.Name ?? "Unknown";
+                    recipe.UserName = user?.Username ?? "Unknown";
+
+                    Recipes.Add(recipe); // Adaugă rețeta în listă
                 }
             }
             catch (Exception ex)
             {
-                // Loghează eroarea (opțional)
                 Console.WriteLine($"Error loading recipes: {ex.Message}");
             }
         }
@@ -73,6 +80,12 @@ namespace FlavorFusion.ViewModels
                     Console.WriteLine($"Error deleting recipe: {ex.Message}");
                 }
             }
+        }
+
+        // Adaugă metoda pentru a obține detaliile unei rețete (opțional, dacă e nevoie de detalii)
+        public Recipe GetRecipeById(int id)
+        {
+            return Recipes.FirstOrDefault(r => r.Id == id); // Găsește rețeta după ID
         }
     }
 }

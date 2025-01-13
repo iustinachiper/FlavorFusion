@@ -147,14 +147,13 @@ namespace FlavorFusion.ViewModels
                         Instructions = Instructions,
                         CategoryId = SelectedCategory.Id,
                         UserId = SelectedUser.Id,
-                        // Optionally save ingredients if you want to add this feature
                     };
 
                     // Save the recipe to the database
                     await App.Database.SaveRecipeAsync(newRecipe);
 
                     // Navigate back to the recipes list
-                    await Shell.Current.GoToAsync("..");
+                    await Shell.Current.GoToAsync("//Recipes");
                 }
                 else
                 {

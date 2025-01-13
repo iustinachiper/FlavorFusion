@@ -24,5 +24,11 @@ namespace FlavorFusion.Models
 
         [Column("UserId")]
         public int UserId { get; set; } // Referință la utilizatorul care a creat rețeta
+
+        [Ignore]
+        public string CategoryName { get; set; }
+
+        [Ignore]
+        public string UserName { get; set; }
     }
 }
