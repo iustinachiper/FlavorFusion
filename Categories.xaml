@@ -20,12 +20,12 @@
                    HorizontalOptions="Start"
                    VerticalOptions="Center" />
 
-            <Label Text="Actions"
+            <!-- <Label Text="Actions"
                    FontAttributes="Bold"
                    FontSize="16"
                    HorizontalOptions="End"
                    VerticalOptions="Center"
-                   Grid.ColumnSpan="2" />
+                   Grid.ColumnSpan="2" /> -->
         </Grid>
 
         <!-- Lista categoriilor -->
@@ -43,7 +43,7 @@
                                    VerticalOptions="Center"
                                    HorizontalOptions="Start" />
 
-                            <!-- Butonul Edit -->
+                            <!-- Butonul Edit 
                             <Button Text="Edit"
                                     BackgroundColor="#D3D3D3"
                                     TextColor="Black"
@@ -53,7 +53,7 @@
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.EditCategoryCommand}"
                                     CommandParameter="{Binding}" 
                                     Grid.Column="1"
-                                    Margin="5,0" />
+                                    Margin="5,0" /> -->
 
                             <!-- Butonul Delete -->
                             <Button Text="Delete"
