@@ -19,6 +19,8 @@ namespace FlavorFusion.ViewModels
         // Comandă pentru ștergerea unei rețete
         public ICommand DeleteRecipeCommand { get; }
 
+        public ICommand EditRecipeCommand { get; }
+
         public RecipesViewModel()
         {
             // Inițializează lista de rețete
@@ -32,6 +34,9 @@ namespace FlavorFusion.ViewModels
 
             // Comandă pentru ștergerea unei rețete
             DeleteRecipeCommand = new Command<Recipe>(async (recipe) => await DeleteRecipe(recipe));
+
+            //comanda pentru edit reteta
+            EditRecipeCommand = new Command<Recipe>(async (recipe) => await EditRecipe(recipe));
 
             // Încarcă rețetele existente din baza de date
             LoadRecipes();
@@ -81,6 +86,17 @@ namespace FlavorFusion.ViewModels
                 }
             }
         }
+
+        private async Task EditRecipe(Recipe recipe)
+        {
+            if (recipe != null)
+            {
+                // Navighează către pagina Edit și trimite ID-ul rețetei
+                await Shell.Current.GoToAsync($"EditRecipe?recipeId={recipe.Id}");
+            }
+        }
+
+
 
         // Adaugă metoda pentru a obține detaliile unei rețete (opțional, dacă e nevoie de detalii)
         public Recipe GetRecipeById(int id)

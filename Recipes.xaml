@@ -83,6 +83,18 @@
                                        VerticalOptions="StartAndExpand"
                                        HorizontalOptions="Start" />
 
+                                <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="End">
+                                <!-- Buton pentru edit rețeta -->
+                                <Button Text="Edit"
+                                        BackgroundColor="#D3D3D3"
+                                        TextColor="Black"
+                                        Padding="5"
+                                        FontSize="14"
+                                        CornerRadius="10"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.EditRecipeCommand}"
+                                        CommandParameter="{Binding}"
+                                        Grid.Column="0" />
+
                                 <!-- Buton pentru ștergerea rețetei -->
                                 <Button Text="Delete"
                                         BackgroundColor="Red"
@@ -92,8 +104,8 @@
                                         CornerRadius="10"
                                         Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.DeleteRecipeCommand}"
                                         CommandParameter="{Binding}" 
-                                        HorizontalOptions="End"
-                                        Margin="5,0" />
+                                        Grid.Column="1" />
+                                </StackLayout>
                             </StackLayout>
                         </Frame>
                     </DataTemplate>

@@ -43,4 +43,9 @@ Route="Users"
               Route="CreateUser"
               FlyoutItemIsVisible="False"/>
 
+    <ShellContent Title="Edit Recipe" 
+                  ContentTemplate="{DataTemplate local:EditRecipe}"
+                  Route="EditRecipe" />
+
+
 </Shell>

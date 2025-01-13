@@ -76,6 +76,9 @@
 	  <MauiXaml Update="CreateUser.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="EditRecipe.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Recipes.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

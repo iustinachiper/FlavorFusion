@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlavorFusion.EditRecipe"
+             Title="EditRecipe">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+            <Label Text="Edit Recipe" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" />
+            <Entry Placeholder="Recipe Name" Text="{Binding Name}" />
+            <Editor Placeholder="Instructions" Text="{Binding Instructions}" HeightRequest="100" />
+            <Picker Title="Select Category"
+                    ItemsSource="{Binding Categories}"
+                    ItemDisplayBinding="{Binding Name}"
+                    SelectedItem="{Binding SelectedCategory}" />
+            <Picker Title="Select User"
+                    ItemsSource="{Binding Users}"
+                    ItemDisplayBinding="{Binding Username}"
+                    SelectedItem="{Binding SelectedUser}" />
+            <Editor Placeholder="Ingredients (comma-separated)" Text="{Binding Ingredients}" HeightRequest="100" />
+            <Button Text="Save Changes"
+                    BackgroundColor="#91CCCA"
+                    TextColor="White"
+                    Command="{Binding SaveRecipeCommand}" />
+            <Button Text="Cancel"
+                    BackgroundColor="#E0E0E0"
+                    TextColor="Black"
+                    Command="{Binding CancelCommand}" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
